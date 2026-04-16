@@ -1,0 +1,207 @@
+Index: log.html
+===================================================================
+diff --git a/log.html b/log.html
+deleted file mode 100644
+--- a/log.html	(revision 4ab4b5b1d0eb4b978e7e4fe37480dfbb548a7d7b)
++++ /dev/null	(revision 4ab4b5b1d0eb4b978e7e4fe37480dfbb548a7d7b)
+@@ -1,200 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="uk">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Катастрофа на американських гірках</title>
+-   <style>
+-        body {
+-            background: linear-gradient(135deg, #2c2c2c 0%, #6b6b6b 50%, #2c2c2c 100%);
+-            color: #FFFFFF;
+-            font-family: sans-serif;
+-            padding: 28px;
+-            min-height: 100vh;
+-        }
+-
+-        .stat-card {
+-            background: rgba(255,255,255,0.1);
+-            border-radius: 12px;
+-            padding: 20px 28px;
+-            text-align: center;
+-            margin-bottom: 24px;
+-        }
+-
+-        h1 {
+-            color: #FFFFFF;
+-            text-align: center;
+-            font-size: 28px;
+-            margin-bottom: 8px;
+-        }
+-
+-        h2 {
+-            color: #FFFFFF;
+-            font-size: 18px;
+-            margin-bottom: 8px;
+-            margin-top: 0;
+-        }
+-
+-        hr {
+-            border: none;
+-            border-top: 1px solid rgba(255,255,255,0.3);
+-            margin: 8px 0 14px 0;
+-        }
+-
+-        /* Two-column layout */
+-        .main-layout {
+-            display: flex;
+-            gap: 32px;
+-            align-items: flex-start;
+-            margin-top: 8px;
+-        }
+-
+-        /* Left column: sections */
+-        .sections-column {
+-            flex: 0 0 340px;
+-            display: flex;
+-            flex-direction: column;
+-            gap: 24px;
+-        }
+-
+-        .section-block {
+-            background: rgba(255,255,255,0.08);
+-            border-radius: 12px;
+-            padding: 18px 22px;
+-        }
+-
+-        /* Right column: video + intro text */
+-        .right-column {
+-            flex: 1;
+-            display: flex;
+-            flex-direction: column;
+-            gap: 24px;
+-        }
+-
+-        .intro-text {
+-            background: rgba(255,255,255,0.08);
+-            border-radius: 12px;
+-            padding: 18px 22px;
+-            line-height: 1.7;
+-        }
+-
+-        .video-block iframe {
+-            border-radius: 12px;
+-            display: block;
+-            width: 100%;
+-            height: 700px;
+-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+-        }
+-
+-        .video-caption {
+-            text-align: center;
+-            font-size: 13px;
+-            color: rgba(255,255,255,0.5);
+-            margin-top: 8px;
+-        }
+-
+-        ul {
+-            padding-left: 18px;
+-            margin: 0;
+-        }
+-
+-        li {
+-            margin-bottom: 10px;
+-            line-height: 1.6;
+-            font-size: 14px;
+-        }
+-
+-        p {
+-            line-height: 1.7;
+-            margin: 0;
+-            font-size: 14px;
+-        }
+-
+-        .bottom-note {
+-            margin-top: 16px;
+-            text-align: center;
+-            font-size: 15px;
+-            color: rgba(255,255,255,0.7);
+-            font-style: italic;
+-        }
+-    </style>
+-</head>
+-<body>
+-
+-<img src="logo.png" alt="логотип" style="position: absolute; top: 35px; left: 30px; width: 150px; height: 150px;">
+-
+-<hr>
+-
+-<div class="stat-card">
+-    <div style="font-size: 36px; font-weight: 700;">19 липня 2003</div>
+-    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Катастрофа на американських гірках — Нагасіма Спаленд, 2003</div>
+-</div>
+-
+-<div class="main-layout">
+-
+-    <div class="sections-column">
+-
+-        <div class="section-block">
+-            <h2>Хронологія</h2>
+-            <hr>
+-            <ul>
+-                <li><b>13:42</b> — Склад вирушає в рейс. Атракціон працював без порушень з ранку.</li>
+-                <li><b>13:44</b> — Кріпильний болт маточинного вузла зруйнувався через металеву втому. Колесо діаметром 30 см відділилося від осі.</li>
+-                <li><b>13:44</b> — Колесо вилетіло в зону для глядачів і вдарило жінку біля огорожі.</li>
+-                <li><b>13:50</b> — Прибули служби екстреної допомоги. Парк зупинив усі атракціони.</li>
+-            </ul>
+-        </div>
+-
+-        <div class="section-block">
+-            <h2>Причини</h2>
+-            <hr>
+-            <p>Слідство встановило, що технічне обслуговування гірок велося з грубими порушеннями. Болти кріплення коліс не перевірялися і не замінювалися згідно з регламентом виробника. Метал перебував у стані втомного руйнування.</p>
+-        </div>
+-
+-        <div class="section-block">
+-            <h2>Наслідки</h2>
+-            <hr>
+-            <p>Проти керівництва парку порушено кримінальні справи. По всій Японії були введені обов'язкові щотижневі інспекції атракціонів за участю незалежних технічних експертів. Парк Нагасіма Спаленд тимчасово закрили для перевірки всіх механічних атракціонів. Трагедія спричинила системні зміни в законодавстві про безпеку атракціонів у Японії.</p>
+-        </div>
+-
+-    </div>
+-
+-    <div class="right-column">
+-
+-        <div class="intro-text">
+-            <p>19 липня 2003 року в парку атракціонів Нагасіма Спаленд поблизу Нагої, Японія, під час руху американських гірок «Кінетік Кустер» відірвалося колесо вагонетки. На швидкості близько 100 км/год воно вилетіло за огорожу і вдарило молоду жінку 19 років, яка спостерігала за атракціоном. Жінка загинула на місці.</p>
+-            <br>
+-            <p>Кілька інших відвідувачів отримали травми. Пасажири складу фізично не постраждали.</p>
+-        </div>
+-
+-        <div class="video-block">
+-            <iframe
+-                src="https://www.youtube.com/embed/DFsLOXoLfYU"
+-                title="Катастрофи на американських гірках"
+-                frameborder="0"
+-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+-                allowfullscreen>
+-            </iframe>
+-            <p class="video-caption">Катастрофи на американських гірках</p>
+-        </div>
+-
+-    </div>
+-
+-</div>
+-
+-<p class="bottom-note">Будьте обережні, будь ласка</p>
+-<div style="text-align: center; margin-top: 32px;">
+-    <a href="https://send.monobank.ua/jar/2ESnU95jVA"
+-       target="_blank"
+-       style="display: inline-flex; align-items: center; gap: 10px;
+-              background: rgba(255,255,255,0.15);
+-              color: #FFFFFF;
+-              font-family: sans-serif; font-size: 15px; font-weight: 500;
+-              padding: 14px 32px; border-radius: 50px;
+-              text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+-              cursor: pointer;">
+-        ❤️ Підтримати проект
+-    </a>
+-    <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">через Monobank</p>
+-</div>
+-</body>
+-</html>
