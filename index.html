@@ -13,7 +13,6 @@
             min-height: 100vh;
         }
 
-        /* ─── BREADCRUMB / BACK NAV ─── */
         .breadcrumb-bar {
             display: flex;
             align-items: center;
@@ -58,7 +57,6 @@
             max-width: 280px;
         }
 
-        /* ─── LOGO ─── */
         .logo-img {
             display: block;
             width: 72px;
@@ -70,7 +68,6 @@
             .logo-img { width: 52px; height: 52px; }
         }
 
-        /* ─── STAT CARD ─── */
         .stat-card {
             background: rgba(255,255,255,0.1);
             border-radius: 12px;
@@ -150,7 +147,6 @@
             font-style: italic;
         }
 
-        /* ─── TIMELINE ─── */
         .timeline {
             position: relative;
             padding-left: 28px;
@@ -203,7 +199,6 @@
         .timeline li:nth-child(3)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
         .timeline li:nth-child(4)::before { background: #74c0fc; border-color: #74c0fc; box-shadow: 0 0 0 3px rgba(116,192,252,0.25); }
 
-        /* ─── FADE-IN ON SCROLL ─── */
         .fade-in {
             opacity: 0;
             transform: translateY(22px);
@@ -214,7 +209,6 @@
             transform: translateY(0);
         }
 
-        /* ─── MOBILE ─── */
         @media (max-width: 768px) {
             body { padding: 16px; }
 
@@ -248,7 +242,6 @@
 
 <img src="logo.png" alt="логотип" class="logo-img">
 
-<!-- ─── BREADCRUMB BAR ─── -->
 <div class="breadcrumb-bar">
     <a href="index.html" class="back-btn">
         <!-- left arrow icon -->
@@ -272,7 +265,6 @@
 
     <div class="sections-column">
 
-        <!-- TIMELINE BLOCK -->
         <div class="section-block fade-in">
             <h2>Хронологія</h2>
             <hr>
@@ -349,7 +341,6 @@
     <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">через Monobank</p>
 </div>
 
-<!-- ─── SCROLL FADE-IN JS ─── -->
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
