@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Катастрофа на американських гірках</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c2c2c 0%, #6b6b6b 50%, #2c2c2c 100%);
+            color: #FFFFFF;
+            font-family: sans-serif;
+            padding: 28px;
+            min-height: 100vh;
+        }
+
+        .breadcrumb-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.22);
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 14px 6px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.22);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .back-btn svg {
+            width: 14px; height: 14px;
+            flex-shrink: 0;
+        }
+
+        .breadcrumb-sep {
+            color: rgba(255,255,255,0.35);
+            font-size: 13px;
+        }
+        .breadcrumb-current {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 280px;
+        }
+
+        .logo-img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .logo-img { width: 52px; height: 52px; }
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px 28px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h1 { color: #FFFFFF; text-align: center; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #FFFFFF; font-size: 18px; margin-bottom: 8px; margin-top: 0; }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin: 8px 0 14px 0;
+        }
+
+        /* ─── TWO-COLUMN LAYOUT ─── */
+        .main-layout {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+
+        .sections-column {
+            flex: 0 0 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section-block {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .intro-text {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+            line-height: 1.7;
+        }
+
+        .video-block iframe {
+            border-radius: 12px;
+            display: block;
+            width: 100%;
+            height: 700px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+        }
+
+        ul { padding-left: 18px; margin: 0; }
+        li { margin-bottom: 10px; line-height: 1.6; font-size: 14px; }
+        p { line-height: 1.7; margin: 0; font-size: 14px; }
+
+        .bottom-note {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin: 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 2px;
+        }
+        .timeline li {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 8px;
+        }
+        .timeline li:last-child { margin-bottom: 0; }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
+        .timeline-time {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 13px;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.8);
+        }
+        .timeline li:nth-child(1)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(2)::before { background: #ffa94d; border-color: #ffa94d; box-shadow: 0 0 0 3px rgba(255,169,77,0.25); }
+        .timeline li:nth-child(3)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(4)::before { background: #74c0fc; border-color: #74c0fc; box-shadow: 0 0 0 3px rgba(116,192,252,0.25); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+
+            .main-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .sections-column {
+                flex: none;
+                width: 100%;
+            }
+            .right-column {
+                width: 100%;
+            }
+            .video-block iframe {
+                height: 220px;
+            }
+            .stat-card {
+                padding: 16px 16px;
+            }
+            .stat-card div:first-child {
+                font-size: 26px;
+            }
+            .breadcrumb-current {
+                max-width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<img src="logo.png" alt="логотип" class="logo-img">
+
+<div class="breadcrumb-bar">
+    <a href="index.html" class="back-btn">
+        <!-- left arrow icon -->
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L5 8L10 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Головна
+    </a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Катастрофа на американських гірках, 2003</span>
+</div>
+
+<hr>
+
+<div class="stat-card fade-in">
+    <div style="font-size: 36px; font-weight: 700;">19 липня 2003</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Катастрофа на американських гірках — Нагасіма Спаленд, 2003</div>
+</div>
+
+<div class="main-layout">
+
+    <div class="sections-column">
+
+        <div class="section-block fade-in">
+            <h2>Хронологія</h2>
+            <hr>
+            <ul class="timeline">
+                <li>
+                    <span class="timeline-time">13:42</span>
+                    <div class="timeline-desc">Склад вирушає в рейс. Атракціон працював без порушень з ранку.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">13:44</span>
+                    <div class="timeline-desc">Кріпильний болт маточинного вузла зруйнувався через металеву втому. Колесо діаметром 30 см відділилося від осі.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">13:44</span>
+                    <div class="timeline-desc">Колесо вилетіло в зону для глядачів і вдарило жінку біля огорожі.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">13:50</span>
+                    <div class="timeline-desc">Прибули служби екстреної допомоги. Парк зупинив усі атракціони.</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Причини</h2>
+            <hr>
+            <p>Слідство встановило, що технічне обслуговування гірок велося з грубими порушеннями. Болти кріплення коліс не перевірялися і не замінювалися згідно з регламентом виробника. Метал перебував у стані втомного руйнування.</p>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Наслідки</h2>
+            <hr>
+            <p>Проти керівництва парку порушено кримінальні справи. По всій Японії були введені обов'язкові щотижневі інспекції атракціонів за участю незалежних технічних експертів. Парк Нагасіма Спаленд тимчасово закрили для перевірки всіх механічних атракціонів. Трагедія спричинила системні зміни в законодавстві про безпеку атракціонів у Японії.</p>
+        </div>
+
+    </div>
+
+    <div class="right-column">
+
+        <div class="intro-text fade-in">
+            <p>19 липня 2003 року в парку атракціонів Нагасіма Спаленд поблизу Нагої, Японія, під час руху американських гірок «Кінетік Кустер» відірвалося колесо вагонетки. На швидкості близько 100 км/год воно вилетіло за огорожу і вдарило молоду жінку 19 років, яка спостерігала за атракціоном. Жінка загинула на місці.</p>
+            <br>
+            <p>Кілька інших відвідувачів отримали травми. Пасажири складу фізично не постраждали.</p>
+        </div>
+
+        <div class="video-block fade-in">
+            <iframe
+                src="https://www.youtube.com/embed/DFsLOXoLfYU"
+                title="Катастрофи на американських гірках"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <p class="video-caption">Катастрофи на американських гірках</p>
+        </div>
+
+    </div>
+
+</div>
+
+<p class="bottom-note fade-in">Будьте обережні, будь ласка</p>
+<div style="text-align: center; margin-top: 32px;" class="fade-in">
+    <a href="https://send.monobank.ua/jar/2ESnU95jVA"
+       target="_blank"
+       style="display: inline-flex; align-items: center; gap: 10px;
+              background: rgba(255,255,255,0.15);
+              color: #FFFFFF;
+              font-family: sans-serif; font-size: 15px; font-weight: 500;
+              padding: 14px 32px; border-radius: 50px;
+              text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+              cursor: pointer;">
+        ❤️ Підтримати проект
+    </a>
+    <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">через Monobank</p>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+        // stagger delays for elements that are already in viewport on load
+        el.style.transitionDelay = (i * 0.07) + 's';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
