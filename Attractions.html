@@ -240,14 +240,21 @@
     width: 37%;
     margin: -78px auto 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 350px;
+    justify-content: space-between;
     box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    .page-nav {
+        width: 90%;
+        gap: 120px;
+    }
+}
+
 .nav-btn {
-    width: 54px;
-    height: 54px;
+    width: 46px;
+    height: 46px;
+    font-size: 28px;
     border-radius: 30%;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.18);
@@ -261,13 +268,6 @@
     backdrop-filter: blur(6px);
     transition: 0.25s ease;
     align-items: center;
-}
-        @media (max-width: 768px) {
-    .page-nav {
-        bottom: 140px;
-    }
-}
-
 
     </style>
 </head>
