@@ -236,6 +236,39 @@
                 max-width: 160px;
             }
         }
+        .page-nav {
+    width: 37%;
+    margin: -78px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 350px;
+    box-sizing: border-box;
+}
+
+.nav-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 30%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    text-decoration: none;
+    font-size: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4px;
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+    align-items: center;
+}
+        @media (max-width: 768px) {
+    .page-nav {
+        bottom: 140px;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -357,6 +390,10 @@
         observer.observe(el);
     });
 </script>
+<div class="page-nav">
+    <a href="page1.html" class="nav-btn">‹</a>
+    <a href="page3.html" class="nav-btn">›</a>
+</div>
 
 </body>
 </html>
