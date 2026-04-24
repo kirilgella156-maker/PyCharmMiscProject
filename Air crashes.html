@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air crashes</title>
+    <title>Авіакатастрофа рейсу Japan Airlines 123</title>
     <style>
         body {
             background: linear-gradient(135deg, #2c2c2c 0%, #6b6b6b 50%, #2c2c2c 100%);
@@ -43,30 +43,238 @@
             width: 14px; height: 14px;
             flex-shrink: 0;
         }
-        .dev-text {
-    text-align: center;
-    font-size: 48px;
-    text-transform: uppercase;
-    margin-top: 40px;
-    letter-spacing: 2px;
-}
-        body {
+
+        .breadcrumb-sep {
+            color: rgba(255,255,255,0.35);
+            font-size: 13px;
+        }
+        .breadcrumb-current {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 280px;
+        }
+
+        .logo-img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .logo-img { width: 52px; height: 52px; }
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px 28px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h1 { color: #FFFFFF; text-align: center; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #FFFFFF; font-size: 18px; margin-bottom: 8px; margin-top: 0; }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin: 8px 0 14px 0;
+        }
+
+        /* ─── TWO-COLUMN LAYOUT ─── */
+        .main-layout {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+
+        .sections-column {
+            flex: 0 0 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section-block {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .intro-text {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+            line-height: 1.7;
+        }
+
+        .video-block iframe {
+            border-radius: 12px;
+            display: block;
+            width: 100%;
+            height: 700px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+        }
+
+        ul { padding-left: 18px; margin: 0; }
+        li { margin-bottom: 10px; line-height: 1.6; font-size: 14px; }
+        p { line-height: 1.7; margin: 0; font-size: 14px; }
+
+        .bottom-note {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin: 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 2px;
+        }
+        .timeline li {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 8px;
+        }
+        .timeline li:last-child { margin-bottom: 0; }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
+        .timeline-time {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 13px;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.8);
+        }
+        .timeline li:nth-child(1)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(2)::before { background: #ffa94d; border-color: #ffa94d; box-shadow: 0 0 0 3px rgba(255,169,77,0.25); }
+        .timeline li:nth-child(3)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(4)::before { background: #74c0fc; border-color: #74c0fc; box-shadow: 0 0 0 3px rgba(116,192,252,0.25); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+
+            .main-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .sections-column {
+                flex: none;
+                width: 100%;
+            }
+            .right-column {
+                width: 100%;
+            }
+            .video-block iframe {
+                height: 220px;
+            }
+            .stat-card {
+                padding: 16px 16px;
+            }
+            .stat-card div:first-child {
+                font-size: 26px;
+            }
+            .breadcrumb-current {
+                max-width: 160px;
+            }
+        }
+        .page-nav {
+    width: 37%;
+    margin: -78px auto 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .page-nav {
+        width: 90%;
+        gap: 120px;
+    }
+}
+
+.nav-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 28px;
+    border-radius: 45%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    text-decoration: none;
+    font-size: 34px;
+    display: flex;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.dev-text {
-    font-size: 60px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
+    justify-content: center;
+    padding-bottom: 4px;
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+    align-items: center;
 
     </style>
 </head>
+<body>
+
+<img src="logo.png" alt="логотип" class="logo-img">
+
 <div class="breadcrumb-bar">
     <a href="index.html" class="back-btn">
         <!-- left arrow icon -->
@@ -75,4 +283,117 @@
         </svg>
         Головна
     </a>
-<h1 class="dev-text">У РОЗРОБЦІ</h1>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Авіакатастрофа рейсу JAL 123, 1985</span>
+</div>
+
+<hr>
+
+<div class="stat-card fade-in">
+    <div style="font-size: 36px; font-weight: 700;">12 серпня 1985</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Авіакатастрофа рейсу Japan Airlines 123 — найбільша в історії катастрофа одного літака</div>
+</div>
+
+<div class="main-layout">
+
+    <div class="sections-column">
+
+        <div class="section-block fade-in">
+            <h2>Хронологія</h2>
+            <hr>
+            <ul class="timeline">
+                <li>
+                    <span class="timeline-time">18:12</span>
+                    <div class="timeline-desc">Рейс JAL 123 вилетів з аеропорту Токіо-Ханеда до Осаки. На борту — 524 особи.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">18:24</span>
+                    <div class="timeline-desc">Вибух у хвостовій частині. Гідравлічний кермовий механізм повністю вийшов з ладу. Екіпаж втратив керування.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">18:56</span>
+                    <div class="timeline-desc">Літак зіткнувся з горою Такамагахара в префектурі Гунма на швидкості понад 600 км/год.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">19:30</span>
+                    <div class="timeline-desc">Рятувальники прибули на місце катастрофи. Серед 524 осіб на борту вижило лише четверо.</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Причини</h2>
+            <hr>
+            <p>Слідство встановило, що катастрофа сталася через неправильний ремонт хвостового перегородки, виконаний Boeing у 1978 році після жорсткої посадки. Замість суцільної накладки були використані дві окремі пластини з одним рядом заклепок замість двох. Через 7 років металева втома призвела до руйнування перегородки та втрати тиску в гідравлічній системі.</p>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Наслідки</h2>
+            <hr>
+            <p>Загинули 520 осіб — це найбільша кількість жертв в катастрофі одного літака в історії авіації. Boeing виплатив компенсації родинам жертв. По всьому світу були запроваджені нові стандарти контролю якості ремонтних робіт та обов'язкові перевірки гермоперегородок. Катастрофа суттєво вплинула на розвиток міжнародних авіаційних норм безпеки ІКАО.</p>
+        </div>
+
+    </div>
+
+    <div class="right-column">
+
+        <div class="intro-text fade-in">
+            <p>12 серпня 1985 року літак Boeing 747SR авіакомпанії Japan Airlines, виконуючи внутрішній рейс JAL 123 з Токіо до Осаки, зазнав катастрофи над горами префектури Гунма, Японія. Через раптове руйнування хвостової гермоперегородки літак повністю втратив гідравлічне керування.</p>
+            <br>
+            <p>Протягом 32 хвилин екіпаж намагався керувати бортом лише за допомогою тяги двигунів. О 18:56 Boeing врізався у схил гори Такамагахара. З 524 осіб на борту вижили лише 4 пасажири.</p>
+        </div>
+
+       <div class="video-block fade-in">
+    <iframe
+        src="https://www.youtube.com/embed/oUT7m3n1xng"
+        title="Авіакатастрофа рейсу JAL 123"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+    <p class="video-caption">Авіакатастрофа рейсу JAL 123, 1985</p>
+</div>
+
+    </div>
+
+</div>
+
+<p class="bottom-note fade-in">Будьте обережні, будь ласка</p>
+<div style="text-align: center; margin-top: 32px;" class="fade-in">
+    <a href="https://send.monobank.ua/jar/2ESnU95jVA"
+       target="_blank"
+       style="display: inline-flex; align-items: center; gap: 10px;
+              background: rgba(255,255,255,0.15);
+              color: #FFFFFF;
+              font-family: sans-serif; font-size: 15px; font-weight: 500;
+              padding: 14px 32px; border-radius: 50px;
+              text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+              cursor: pointer;">
+        ❤️ Підтримати проект
+    </a>
+    <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">через Monobank</p>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+        // stagger delays for elements that are already in viewport on load
+        el.style.transitionDelay = (i * 0.07) + 's';
+        observer.observe(el);
+    });
+</script>
+<div class="page-nav">
+    <a href="javascript:history.back()" class="nav-btn">‹</a>
+    <a href="Fires.html" class="nav-btn">›</a>
+</div>
+
+</body>
+</html>
