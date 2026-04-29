@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пожежа</title>
+    <title>Пожежа та вибух на ЧАЕС, 1986</title>
     <style>
         body {
             background: linear-gradient(135deg, #2c2c2c 0%, #6b6b6b 50%, #2c2c2c 100%);
@@ -43,37 +43,341 @@
             width: 14px; height: 14px;
             flex-shrink: 0;
         }
-        .dev-text {
-    text-align: center;
-    font-size: 48px;
-    text-transform: uppercase;
-    margin-top: 40px;
-    letter-spacing: 2px;
-}
-        body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
-.dev-text {
-    font-size: 60px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
+        .breadcrumb-sep {
+            color: rgba(255,255,255,0.35);
+            font-size: 13px;
+        }
+        .breadcrumb-current {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 280px;
+        }
 
+        .logo-img {
+            display: block;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 10px;
+        }
 
+        @media (max-width: 600px) {
+            .logo-img { width: 52px; height: 52px; }
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px 28px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h1 { color: #FFFFFF; text-align: center; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #FFFFFF; font-size: 18px; margin-bottom: 8px; margin-top: 0; }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin: 8px 0 14px 0;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+
+        .sections-column {
+            flex: 0 0 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section-block {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .intro-text {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px 22px;
+            line-height: 1.7;
+        }
+
+        .video-block iframe {
+            border-radius: 12px;
+            display: block;
+            width: 100%;
+            height: 700px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+        }
+
+        ul { padding-left: 18px; margin: 0; }
+        li { margin-bottom: 10px; line-height: 1.6; font-size: 14px; }
+        p { line-height: 1.7; margin: 0; font-size: 14px; }
+
+        .bottom-note {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin: 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 2px;
+        }
+        .timeline li {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 8px;
+        }
+        .timeline li:last-child { margin-bottom: 0; }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
+        .timeline-time {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 13px;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.8);
+        }
+        .timeline li:nth-child(1)::before { background: #ffa94d; border-color: #ffa94d; box-shadow: 0 0 0 3px rgba(255,169,77,0.25); }
+        .timeline li:nth-child(2)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(3)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(4)::before { background: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+        .timeline li:nth-child(5)::before { background: #74c0fc; border-color: #74c0fc; box-shadow: 0 0 0 3px rgba(116,192,252,0.25); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .main-layout { flex-direction: column; gap: 20px; }
+            .sections-column { flex: none; width: 100%; }
+            .right-column { width: 100%; }
+            .video-block iframe { height: 220px; }
+            .stat-card { padding: 16px 16px; }
+            .stat-card div:first-child { font-size: 26px; }
+            .breadcrumb-current { max-width: 160px; }
+        }
+
+        .page-nav {
+            width: 37%;
+            margin: -78px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .page-nav { width: 90%; gap: 120px; }
+        }
+
+        .nav-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 45%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: white;
+            text-decoration: none;
+            font-size: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 4px;
+            backdrop-filter: blur(6px);
+            transition: 0.25s ease;
+        }
     </style>
 </head>
 <body>
+
+<img src="logo.png" alt="логотип" class="logo-img">
+
 <div class="breadcrumb-bar">
     <a href="index.html" class="back-btn">
-        <!-- left arrow icon -->
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 3L5 8L10 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Головна
     </a>
-<h1 class="dev-text">У РОЗРОБЦІ</h1>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Вибух та пожежа на ЧАЕС, 1986</span>
+</div>
+
+<hr>
+
+<div class="stat-card fade-in">
+    <div style="font-size: 36px; font-weight: 700;">26 квітня 1986</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Вибух і пожежа на 4-му енергоблоці ЧАЕС — Прип'ять, Українська РСР</div>
+</div>
+
+<div class="main-layout">
+
+    <div class="sections-column">
+
+        <div class="section-block fade-in">
+            <h2>Хронологія</h2>
+            <hr>
+            <ul class="timeline">
+                <li>
+                    <span class="timeline-time">01:23:04</span>
+                    <div class="timeline-desc">Оператори натискають кнопку аварійного захисту АЗ-5. Реактивність починає неконтрольовано зростати.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">01:23:40</span>
+                    <div class="timeline-desc">Перший тепловий вибух розриває реактор. За кілька секунд відбувається другий, ще потужніший вибух. Дах машинного залу злітає.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">01:28</span>
+                    <div class="timeline-desc">На місце прибувають перші пожежні розрахунки з Прип'яті під командуванням майора Телятникова. Вони не знають про рівень радіації.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">~05:00</span>
+                    <div class="timeline-desc">Відкрите горіння на даху машинного залу ліквідовано. Пожежники отримали летальні дози радіації. Реактор продовжує горіти.</div>
+                </li>
+                <li>
+                    <span class="timeline-time">27 квітня, 14:00</span>
+                    <div class="timeline-desc">Розпочато евакуацію 50 000 мешканців Прип'яті — через 36 годин після вибуху.</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Причини</h2>
+            <hr>
+            <p>Катастрофа сталася під час планового випробування турбогенератора на малій потужності реактора. Поєднання конструктивних недоліків реактора типу РБМК-1000 (позитивний паровий коефіцієнт реактивності) та грубих порушень регламенту персоналом призвело до некерованого розгону. Реактор не мав захисної оболонки, що посилило наслідки.</p>
+        </div>
+
+        <div class="section-block fade-in">
+            <h2>Наслідки</h2>
+            <hr>
+            <p>31 людина загинула безпосередньо (переважно пожежники та персонал), тисячі отримали дози опромінення. Зона відчуження площею 2 600 км² залишається забрудненою досі. Над зруйнованим реактором збудовано саркофаг (1986), а у 2016 році — нову захисну арку «Новий безпечний конфайнмент». Аварія прискорила розпад СРСР і докорінно змінила підходи до ядерної безпеки у всьому світі.</p>
+        </div>
+
+    </div>
+
+    <div class="right-column">
+
+        <div class="intro-text fade-in">
+            <p>26 квітня 1986 року о 1:23 ночі на 4-му енергоблоці Чорнобильської атомної електростанції поблизу міста Прип'ять (Українська РСР) стався вибух реактора — найбільша ядерна катастрофа в історії людства.</p>
+            <br>
+            <p>Вибух зруйнував реакторний зал і спровокував масштабну пожежу, яка тривала кілька діб. У повітря було викинуто радіоактивні матеріали загальною активністю, що у сотні разів перевищила бомбардування Хіросіми. Радіоактивна хмара пройшла над значною частиною Європи.</p>
+            <br>
+            <p>Перші пожежники, що прибули на місце без захисного спорядження, отримали летальні дози радіації. Вони знали про небезпеку — і все одно залишилися гасити пожежу, щоб не допустити поширення вогню на сусідні енергоблоки.</p>
+        </div>
+
+        <div class="video-block fade-in">
+            <iframe
+                src="https://www.youtube.com/watch?v=bSLblo3wDVE"
+                title="Катастрофи на американських гірках"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <p class="video-caption">Катастрофи на американських гірках</p>
+        </div>
+
+    </div>
+
+</div>
+
+<p class="bottom-note fade-in">Будьте обережні, будь ласка</p>
+<div style="text-align: center; margin-top: 32px;" class="fade-in">
+    <a href="https://send.monobank.ua/jar/2ESnU95jVA"
+       target="_blank"
+       style="display: inline-flex; align-items: center; gap: 10px;
+              background: rgba(255,255,255,0.15);
+              color: #FFFFFF;
+              font-family: sans-serif; font-size: 15px; font-weight: 500;
+              padding: 14px 32px; border-radius: 50px;
+              text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+              cursor: pointer;">
+        ❤️ Підтримати проект
+    </a>
+    <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">через Monobank</p>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+        el.style.transitionDelay = (i * 0.07) + 's';
+        observer.observe(el);
+    });
+</script>
+
+<div class="page-nav">
+    <a href="index.html" class="nav-btn">‹</a>
+    <a href="Ships.html" class="nav-btn">›</a>
+</div>
+
+</body>
+</html>
